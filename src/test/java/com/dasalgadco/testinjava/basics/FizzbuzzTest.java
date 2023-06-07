@@ -35,4 +35,14 @@ public class FizzbuzzTest {
     assertEquals("Fizz", Fizzbuzz.evaluate(6));
     assertEquals("Fizz", Fizzbuzz.evaluate(9));
   }
+
+  @Test
+  public void test_Return_Buzz_If_Divisible_By_5() {
+    // Given
+    // When
+    // Then
+    assertEquals("Buzz", Fizzbuzz.evaluate(5));
+    assertEquals("Buzz", Fizzbuzz.evaluate(10));
+    assertEquals("Buzz", Fizzbuzz.evaluate(20));
+  }
 }
