@@ -5,6 +5,7 @@ import com.dasalgadco.testinjava.integration.domain.StudentAge;
 import com.dasalgadco.testinjava.integration.domain.StudentId;
 import com.dasalgadco.testinjava.integration.domain.StudentName;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
@@ -12,7 +13,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 @Table(name = "student")
 @EnableAutoConfiguration
 public class StudentEntity {
-  private String id;
+  @Id private String id;
   private String name;
   private Integer age;
 

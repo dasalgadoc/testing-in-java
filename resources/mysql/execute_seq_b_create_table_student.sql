@@ -1,0 +1,7 @@
+USE test;
+CREATE TABLE IF NOT EXISTS student (
+    id VARCHAR(36) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    age INT NOT NULL,
+    PRIMARY KEY (id)
+);
