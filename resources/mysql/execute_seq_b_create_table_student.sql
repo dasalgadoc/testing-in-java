@@ -5,3 +5,4 @@ CREATE TABLE IF NOT EXISTS student (
     age INT NOT NULL,
     PRIMARY KEY (id)
 );
+TRUNCATE TABLE student;
