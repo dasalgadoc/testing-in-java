@@ -1,8 +1,7 @@
 # Compiled class file
 .idea
 target/surefire-reports/**
-target/maven-status/**
-target/maven-status/maven-compiler-plugin/**
+target/maven-status/
 *.class
 
 # Log file

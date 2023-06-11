@@ -1,5 +1,7 @@
 package com.dasalgadco.testinjava.shared.domain;
 
+import java.util.Objects;
+
 public class IntegerValueObject {
   protected Integer value;
 
@@ -25,5 +27,18 @@ public class IntegerValueObject {
 
   public boolean isLessThanZero() {
     return this.value < 0;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof IntegerValueObject)) return false;
+    IntegerValueObject that = (IntegerValueObject) o;
+    return Objects.equals(value, that.value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 }
