@@ -1,0 +1,6 @@
+com/dasalgadco/testinjava/basics/FizzbuzzTest.class
+com/dasalgadco/testinjava/integration/application/StudentCreatorTest.class
+com/dasalgadco/testinjava/TestInJavaApplicationTests.class
+com/dasalgadco/testinjava/tips/domain/BookTest.class
+com/dasalgadco/testinjava/acceptance/infrastructure/entrypoints/HttpStudentGetterTest.class
+com/dasalgadco/testinjava/acceptance/infrastructure/entrypoints/AdditionSteps.class

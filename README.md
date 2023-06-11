@@ -2,6 +2,11 @@
 Project to explore basic test techniques in Java
 
 Before testing!
+
+```bash
+make all
+```
+
 ```bash
 docker-compose up --build
 ```
