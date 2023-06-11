@@ -55,12 +55,12 @@ public class UserMother {
   }
 
   private static Integer randomAccessLevel() {
-    List<String> keys = new ArrayList<>(new AccessLevelMap().accessLevelMap.keySet());
+    List<String> keys = new ArrayList<>(new AccessLevelMap().value.keySet());
     Random random = new Random();
     int randomIndex = random.nextInt(keys.size());
     String randomKey = keys.get(randomIndex);
 
-    return new AccessLevelMap().accessLevelMap.get(randomKey);
+    return new AccessLevelMap().value.get(randomKey);
   }
 
   private static String randomName() {

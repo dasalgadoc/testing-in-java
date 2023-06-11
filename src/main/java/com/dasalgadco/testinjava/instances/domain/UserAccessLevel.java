@@ -19,14 +19,14 @@ public class UserAccessLevel extends IntegerValueObject {
     if (!isValidUserAccessLevel(accessLevel)) {
       throw new InvalidUser("Invalid user access level");
     }
-    this.value = state.accessLevelMap.get(accessLevel);
+    this.value = state.value.get(accessLevel);
   }
 
   private boolean isValidUserAccessLevel(Integer value) {
-    return state.accessLevelMap.containsValue(value);
+    return state.value.containsValue(value);
   }
 
   private boolean isValidUserAccessLevel(String accessLevel) {
-    return state.accessLevelMap.containsKey(accessLevel);
+    return state.value.containsKey(accessLevel);
   }
 }
