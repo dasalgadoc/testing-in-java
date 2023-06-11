@@ -4,6 +4,7 @@ import com.dasalgadco.testinjava.instances.domain.error.InvalidUser;
 import com.dasalgadco.testinjava.shared.domain.IntegerValueObject;
 
 public class UserAccessLevel extends IntegerValueObject {
+  public static final Integer MIN_EDITOR_ACCESS_LEVEL = 2;
   private AccessLevelMap state = new AccessLevelMap();
 
   public UserAccessLevel(Integer value) {

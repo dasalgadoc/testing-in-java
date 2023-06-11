@@ -41,4 +41,8 @@ public class User extends AggregateRoot {
   public UserAccessLevel accessLevel() {
     return accessLevel;
   }
+
+  public boolean canEdit() {
+    return accessLevel.value() >= UserAccessLevel.MIN_EDITOR_ACCESS_LEVEL;
+  }
 }
