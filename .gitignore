@@ -1,5 +1,7 @@
 # Compiled class file
 .idea
+target/test-classes/**
+target/maven-status/**
 *.class
 
 # Log file
