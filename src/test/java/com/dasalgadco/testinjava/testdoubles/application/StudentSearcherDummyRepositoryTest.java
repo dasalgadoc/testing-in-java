@@ -11,7 +11,7 @@ import org.springframework.test.context.TestPropertySource;
 
 @SpringBootTest
 @TestPropertySource(properties = "students.repository=DummyStudentRepository")
-public class StudentSearcherDummyRepository {
+public class StudentSearcherDummyRepositoryTest {
   @Autowired private StudentSearcher studentSearcher;
 
   @Test

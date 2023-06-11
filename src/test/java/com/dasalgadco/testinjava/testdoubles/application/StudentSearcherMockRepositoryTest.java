@@ -20,7 +20,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
-public class StudentSearcherMockRepository {
+public class StudentSearcherMockRepositoryTest {
   @Mock private StudentRepository studentRepository;
 
   @InjectMocks private StudentSearcher studentSearcher;
