@@ -21,12 +21,12 @@ public class StudentSignUp {
     repository = studentRepositoryFactory.getStudentRepository();
   }
 
-  public void signUp(String name, Integer age) {
+  public void invoke(String name, Integer age) {
     StudentId studentId = new StudentId();
     try {
       repository.search(studentId);
       throw new StudentSignUpException("Student already exists");
-    } finally {
+    } catch (Exception e) {
       StudentName studentName = new StudentName(name);
       StudentAge studentAge = new StudentAge(age);
       Student student = new Student(studentId, studentName, studentAge);

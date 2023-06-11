@@ -32,4 +32,27 @@ public class VanillaSpyStudentRepository implements StudentRepository {
 
     throw new RuntimeException("Student not found");
   }
+
+  public boolean isSaveWasCalled() {
+    return saveWasCalled;
+  }
+
+  public int getSaveCalls() {
+    return saveCalls;
+  }
+
+  public boolean isSearchWasCalled() {
+    return searchWasCalled;
+  }
+
+  public int getSearchCalls() {
+    return searchCalls;
+  }
+
+  public void reset() {
+    this.saveWasCalled = false;
+    this.saveCalls = 0;
+    this.searchWasCalled = false;
+    this.searchCalls = 0;
+  }
 }
