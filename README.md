@@ -21,3 +21,4 @@ Launch the server before to execute the acceptance test.
 
 This project is a simple example of how to use the following test techniques:
 
+Mockito spy allow to modify the behavior of a method in a class. It is useful when you want to test a method that calls other methods in the same class.
