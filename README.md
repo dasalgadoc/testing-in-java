@@ -9,6 +9,9 @@ I can't achieve to run the dockers through testing so I did in the [Go project](
 
 If you know how to do it, please let me know and PR me.
 
+Launch the server before to execute the acceptance test.
+
+
 ## 📚 Project description
 
 This project is a simple example of how to use the following test techniques:
