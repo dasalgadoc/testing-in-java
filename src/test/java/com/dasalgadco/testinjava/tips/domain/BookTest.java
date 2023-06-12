@@ -15,8 +15,8 @@ public class BookTest {
   @Test
   public void testAssertionEquals() {
     // Given
-    BookISBN bookISBN = new BookISBN("9780544003415");
-    BookTitle bookTitle = new BookTitle("The Lord of the Rings");
+    String bookISBN = "9780544003415";
+    String bookTitle = "The Lord of the Rings";
 
     Book one = new Book(bookISBN, bookTitle);
     Book two = new Book(bookISBN, bookTitle);
@@ -30,8 +30,8 @@ public class BookTest {
   @Test
   public void testAssertionWithReferences() {
     // Given
-    BookISBN bookISBN = new BookISBN("9780544003415");
-    BookTitle bookTitle = new BookTitle("The Lord of the Rings");
+    String bookISBN = "9780544003415";
+    String bookTitle = "The Lord of the Rings";
 
     Book one = new Book(bookISBN, bookTitle);
     Book two = one;

@@ -8,13 +8,13 @@ public class Book extends AggregateRoot {
   private final BookISBN isbn;
   private final BookTitle title;
 
-  public Book(BookISBN isbn, BookTitle title) {
+  public Book(String isbn, String title) {
     super(new ArrayList<>());
-    this.isbn = isbn;
-    this.title = title;
+    this.isbn = new BookISBN(isbn);
+    this.title = new BookTitle(title);
   }
 
-  public static Book create(BookISBN isbn, BookTitle title) {
+  public static Book create(String isbn, String title) {
     Book book = new Book(isbn, title);
     book.recordEvent(new BookCreated(book.isbn.value()));
 
