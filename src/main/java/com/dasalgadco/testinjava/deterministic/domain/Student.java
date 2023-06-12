@@ -8,20 +8,40 @@ public class Student extends AggregateRoot {
   private final StudentId id;
   private final StudentShift shift;
 
-  private Student(StudentShift shift) {
+  public Student(String shift) {
     super(new ArrayList<>());
     this.id = new StudentId();
-    this.shift = shift;
+    this.shift = new StudentShift(shift);
   }
 
-  public Student(StudentId id, StudentShift shift) {
+  public Student(Integer hour) {
     super(new ArrayList<>());
-    this.id = id;
-    this.shift = shift;
+    this.id = new StudentId();
+    this.shift = new StudentShift(hour);
   }
 
-  public static Student create(StudentShift shift) {
+  public Student(String id, String shift) {
+    super(new ArrayList<>());
+    this.id = StudentId.create(id);
+    this.shift = new StudentShift(shift);
+  }
+
+  public Student(String id, Integer hour) {
+    super(new ArrayList<>());
+    this.id = StudentId.create(id);
+    this.shift = new StudentShift(hour);
+  }
+
+  public static Student create(String shift) {
     Student student = new Student(shift);
+
+    // No domain event is recorded here
+
+    return student;
+  }
+
+  public static Student create(Integer hour) {
+    Student student = new Student(hour);
 
     // No domain event is recorded here
 

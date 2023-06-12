@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 import com.dasalgadco.testinjava.deterministic.domain.Student;
-import com.dasalgadco.testinjava.deterministic.domain.StudentShift;
 import com.dasalgadco.testinjava.shared.domain.OSClock;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
@@ -27,7 +26,7 @@ public class ClassEnrollmentTest {
   @Test
   public void morning_student_can_take_class_in_morning() {
     // Given
-    StudentShift studentShift = new StudentShift("MORNING");
+    String studentShift = "MORNING";
     Student student = Student.create(studentShift);
 
     when(clock.getHour()).thenReturn(generateRandomHour(6, 11));
@@ -41,7 +40,7 @@ public class ClassEnrollmentTest {
   @Test
   public void morning_student_can_take_class_at_night() {
     // Given
-    StudentShift studentShift = new StudentShift("NIGHT");
+    String studentShift = "NIGHT";
     Student student = Student.create(studentShift);
 
     when(clock.getHour()).thenReturn(generateRandomHour(18, 21));
