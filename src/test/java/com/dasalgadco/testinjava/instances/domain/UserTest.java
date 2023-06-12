@@ -91,6 +91,6 @@ public class UserTest {
   }
 
   public User traditionalInstance(String userName, Integer userAccessLevel) {
-    return new User(new UserName(userName), new UserAccessLevel(userAccessLevel));
+    return new User(userName, userAccessLevel);
   }
 }

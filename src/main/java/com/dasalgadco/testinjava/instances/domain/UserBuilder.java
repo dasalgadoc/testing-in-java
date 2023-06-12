@@ -8,48 +8,53 @@ import java.util.Random;
 public class UserBuilder {
   private static List<String> testNames =
       List.of("John Doe", "Jane Doe", "Foo Bar", "Bar Foo", "Lorem Ipsum", "Ipsum Lorem");
-  private UserId id;
-  private UserName name;
-  private UserAccessLevel accessLevel;
+  private String id;
+  private String name;
+  private Integer accessLevel;
 
   public static UserBuilder builder() {
     return new UserBuilder();
   }
 
   public UserBuilder withId(String id) {
-    UserId userId = UserId.create(id);
-    this.id = userId;
-
+    this.id = id;
     return this;
   }
 
   public UserBuilder withName(String name) {
-    UserName userName = new UserName(name);
-    this.name = userName;
-
+    this.name = name;
     return this;
   }
 
   public UserBuilder withAccessLevel(Integer accessLevel) {
-    UserAccessLevel userAccessLevel = new UserAccessLevel(accessLevel);
-    this.accessLevel = userAccessLevel;
-
+    this.accessLevel = accessLevel;
     return this;
   }
 
+  // Before the VO refactor, this method has an academic background.
+  // Now I decided to refactor to better VO implementation, the power of a well-designed domain
+  // prevents me to be academic.
+  // If you want to check the old implementation, please check look-up the git history for this
+  // class.
   public User build() {
+    if (this.id == null) {
+      this.id = new UserId().value();
+    }
+    if (this.name == null) {
+      this.name = randomName();
+    }
     return new User(this.id, this.name, this.accessLevel);
   }
 
   public User buildWithDefaults() {
     if (this.id == null) {
-      this.id = new UserId();
+      this.id = new UserId().value();
     }
     if (this.name == null) {
-      this.name = new UserName(randomName());
+      this.name = randomName();
     }
     if (this.accessLevel == null) {
-      this.accessLevel = new UserAccessLevel(randomAccessLevel());
+      this.accessLevel = randomAccessLevel();
     }
     return new User(this.id, this.name, this.accessLevel);
   }

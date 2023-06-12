@@ -8,21 +8,21 @@ public class User extends AggregateRoot {
   private UserName name;
   private UserAccessLevel accessLevel;
 
-  public User(UserId id, UserName name, UserAccessLevel accessLevel) {
+  public User(String id, String name, Integer accessLevel) {
     super(new ArrayList<>());
-    this.id = id;
-    this.name = name;
-    this.accessLevel = accessLevel;
+    this.id = UserId.create(id);
+    this.name = new UserName(name);
+    this.accessLevel = new UserAccessLevel(accessLevel);
   }
 
-  public User(UserName name, UserAccessLevel accessLevel) {
+  public User(String name, Integer accessLevel) {
     super(new ArrayList<>());
     this.id = new UserId();
-    this.name = name;
-    this.accessLevel = accessLevel;
+    this.name = new UserName(name);
+    this.accessLevel = new UserAccessLevel(accessLevel);
   }
 
-  public static User create(UserName name, UserAccessLevel accessLevel) {
+  public static User create(String name, Integer accessLevel) {
     User user = new User(name, accessLevel);
 
     // No domain events are recorded here.

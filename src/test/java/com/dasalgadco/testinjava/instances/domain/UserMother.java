@@ -10,44 +10,35 @@ public class UserMother {
       List.of("John Doe", "Jane Doe", "Foo Bar", "Bar Foo", "Lorem Ipsum", "Ipsum Lorem");
 
   public static User withName(String name) {
-    UserId userId = new UserId();
-    UserName userName = new UserName(name);
-    UserAccessLevel userAccessLevel = new UserAccessLevel(randomAccessLevel());
-
-    return new User(userId, userName, userAccessLevel);
+    String userId = new UserId().value();
+    return new User(userId, name, randomAccessLevel());
   }
 
   public static User withAccessLevel(Integer accessLevel) {
-    UserId userId = new UserId();
-    UserName userName = new UserName(randomName());
-    UserAccessLevel userAccessLevel = new UserAccessLevel(accessLevel);
-
-    return new User(userId, userName, userAccessLevel);
+    String userId = new UserId().value();
+    return new User(userId, randomName(), accessLevel);
   }
 
   public static User withId(String id) {
-    UserId userId = UserId.create(id);
-    UserName userName = new UserName(randomName());
-    UserAccessLevel userAccessLevel = new UserAccessLevel(randomAccessLevel());
-
-    return new User(userId, userName, userAccessLevel);
+    String userId = UserId.create(id).value();
+    return new User(userId, randomName(), randomAccessLevel());
   }
 
   public static User userWithArguments(Optional<User> user) {
-    UserName name = new UserName(randomName());
-    UserId id = new UserId();
-    UserAccessLevel accessLevel = new UserAccessLevel(randomAccessLevel());
+    String name = randomName();
+    String id = new UserId().value();
+    Integer accessLevel = randomAccessLevel();
 
     if (user.isPresent()) {
       User userValue = user.get();
       if (userValue.name() != null) {
-        name = userValue.name();
+        name = userValue.name().value();
       }
       if (userValue.id() != null) {
-        id = userValue.id();
+        id = userValue.id().value();
       }
       if (userValue.accessLevel() != null) {
-        accessLevel = userValue.accessLevel();
+        accessLevel = userValue.accessLevel().value();
       }
     }
 
