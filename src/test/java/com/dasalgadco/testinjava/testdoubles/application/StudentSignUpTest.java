@@ -62,7 +62,6 @@ public class StudentSignUpTest {
 
     when(studentRepository.search(any(StudentId.class)))
         .thenThrow(new RuntimeException("Student not found"));
-    ;
 
     // When
     studentSignUpMock.invoke(studentName, studentAge);
