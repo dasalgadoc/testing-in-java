@@ -9,6 +9,7 @@
 __Notes__:
 - All test are passing, even the bad ones.
 - To explore similar techniques in Go, please check [this repository](https://github.com/dasalgadoc/testing-in-go) also, you will find theoretical information about testing.
+- If you'll use this repository for study. I strongly recommend to follow commit by commit.
 
 ## 🧲 Environment Setup
 
