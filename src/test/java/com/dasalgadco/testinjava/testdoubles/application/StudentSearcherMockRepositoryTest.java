@@ -5,9 +5,7 @@ import static org.mockito.Mockito.when;
 
 import com.dasalgadco.testinjava.acceptance.application.StudentSearcher;
 import com.dasalgadco.testinjava.integration.domain.Student;
-import com.dasalgadco.testinjava.integration.domain.StudentAge;
 import com.dasalgadco.testinjava.integration.domain.StudentId;
-import com.dasalgadco.testinjava.integration.domain.StudentName;
 import com.dasalgadco.testinjava.integration.repository.StudentRepository;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
@@ -36,9 +34,9 @@ public class StudentSearcherMockRepositoryTest {
     String searchId = "45215570-0296-11ee-8566-acde48001122";
 
     StudentId studentId = StudentId.create(searchId);
-    StudentName studentName = new StudentName("John Doe");
-    StudentAge studentAge = new StudentAge(20);
-    Student expectedStudent = new Student(studentId, studentName, studentAge);
+    String studentName = "John Doe";
+    Integer studentAge = 20;
+    Student expectedStudent = new Student(searchId, studentName, studentAge);
 
     when(studentRepository.search(studentId)).thenReturn(expectedStudent);
 

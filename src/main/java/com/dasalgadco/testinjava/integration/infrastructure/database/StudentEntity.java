@@ -1,9 +1,6 @@
 package com.dasalgadco.testinjava.integration.infrastructure.database;
 
 import com.dasalgadco.testinjava.integration.domain.Student;
-import com.dasalgadco.testinjava.integration.domain.StudentAge;
-import com.dasalgadco.testinjava.integration.domain.StudentId;
-import com.dasalgadco.testinjava.integration.domain.StudentName;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -50,10 +47,6 @@ public class StudentEntity {
   }
 
   public Student entityToAggregate() {
-    StudentId id = StudentId.create(this.id);
-    StudentName name = new StudentName(this.name);
-    StudentAge age = new StudentAge(this.age);
-
     return new Student(id, name, age);
   }
 

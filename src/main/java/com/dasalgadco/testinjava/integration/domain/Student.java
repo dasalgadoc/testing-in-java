@@ -9,21 +9,21 @@ public class Student extends AggregateRoot {
   private final StudentName name;
   private final StudentAge age;
 
-  public Student(StudentName name, StudentAge age) {
+  private Student(String name, Integer age) {
     super(new ArrayList<>());
     this.id = new StudentId();
-    this.name = name;
-    this.age = age;
+    this.name = new StudentName(name);
+    this.age = new StudentAge(age);
   }
 
-  public Student(StudentId id, StudentName name, StudentAge age) {
+  public Student(String id, String name, Integer age) {
     super(new ArrayList<>());
-    this.id = id;
-    this.name = name;
-    this.age = age;
+    this.id = StudentId.create(id);
+    this.name = new StudentName(name);
+    this.age = new StudentAge(age);
   }
 
-  public static Student create(StudentName name, StudentAge age) {
+  public static Student create(String name, Integer age) {
     Student student = new Student(name, age);
     student.recordEvent(new StudentCreated(student.id.value()));
 

@@ -1,8 +1,6 @@
 package com.dasalgadco.testinjava.integration.application;
 
 import com.dasalgadco.testinjava.integration.domain.Student;
-import com.dasalgadco.testinjava.integration.domain.StudentAge;
-import com.dasalgadco.testinjava.integration.domain.StudentName;
 import com.dasalgadco.testinjava.integration.repository.StudentRepository;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.Resource;
@@ -20,7 +18,7 @@ public class StudentCreator {
   }
 
   public void create(String name, Integer age) {
-    Student student = new Student(new StudentName(name), new StudentAge(age));
+    Student student = Student.create(name, age);
     repository.save(student);
   }
 }

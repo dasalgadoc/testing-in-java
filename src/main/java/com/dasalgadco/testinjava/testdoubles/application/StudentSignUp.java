@@ -2,9 +2,7 @@ package com.dasalgadco.testinjava.testdoubles.application;
 
 import com.dasalgadco.testinjava.integration.application.StudentRepositoryFactory;
 import com.dasalgadco.testinjava.integration.domain.Student;
-import com.dasalgadco.testinjava.integration.domain.StudentAge;
 import com.dasalgadco.testinjava.integration.domain.StudentId;
-import com.dasalgadco.testinjava.integration.domain.StudentName;
 import com.dasalgadco.testinjava.integration.repository.StudentRepository;
 import com.dasalgadco.testinjava.testdoubles.application.error.StudentSignUpException;
 import jakarta.annotation.PostConstruct;
@@ -27,9 +25,7 @@ public class StudentSignUp {
       repository.search(studentId);
       throw new StudentSignUpException("Student already exists");
     } catch (Exception e) {
-      StudentName studentName = new StudentName(name);
-      StudentAge studentAge = new StudentAge(age);
-      Student student = new Student(studentId, studentName, studentAge);
+      Student student = new Student(studentId.value(), name, age);
       repository.save(student);
     }
   }
